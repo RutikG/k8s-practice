@@ -1,0 +1,4 @@
+kubectl rollout status deployment frontend
+kubectl rollout restart deployment frontend
+kubectl rollout undo deployment frontend
+kubectl set image deployment frontend webapp=nginx
