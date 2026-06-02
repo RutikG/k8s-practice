@@ -2,3 +2,11 @@ kubectl rollout status deployment frontend
 kubectl rollout restart deployment frontend
 kubectl rollout undo deployment frontend
 kubectl set image deployment frontend webapp=nginx
+helm search hub consul
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm search repo wordpress
+helm repo list
+helm install amaze-surf bitnami/apache
+helm list
+helm uninstall happy-browse
+helm repo remove hashicorp
