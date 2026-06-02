@@ -10,3 +10,6 @@ helm install amaze-surf bitnami/apache
 helm list
 helm uninstall happy-browse
 helm repo remove hashicorp
+helm upgrade web bitnami/nginx --version=18.7.1
+helm rollback web
+helm pull bitnami/nginx
