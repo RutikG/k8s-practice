@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: httpd-frontend
+ labels:
+  app: httpd
+spec:
+ template:
+  metadata:
+   labels:
+    app: httpd
+  spec:
+   containers:
+   - name: httpd-frontend
+     image: "{{ .Values.image.repository}}:{{ .Values.image.tag }}"
+ replicas: {{ .Values.replicas }}
+ selector:
+  matchLabels:
+   app: httpd
