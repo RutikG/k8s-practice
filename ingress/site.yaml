@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: site
+  namespace: default
+spec:
+  rules:
+  - host: www.rutik.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: dock-svc
+            port:
+              number: 80
+        path: /custom
+        pathType: Prefix
+  - host: www.rutiktesting.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: color-svc
+            port:
+              number: 80
+        path: /color
+        pathType: Prefix
+      - backend:
+          service:
+            name: hello-svc
+            port:
+              number: 80
+        path: /hello
+        pathType: Prefix
+status:
+  loadBalancer: {}

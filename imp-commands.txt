@@ -13,3 +13,4 @@ helm repo remove hashicorp
 helm upgrade web bitnami/nginx --version=18.7.1
 helm rollback web
 helm pull bitnami/nginx
+k create ingress site --rule=www.rutik.com/custom=dock-svc:80 --rule=www.rutiktesting.com/color=color-svc:80 --rule=www.rutiktesting.com/hello=hello-svc:80

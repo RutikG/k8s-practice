@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: 0.1.0
+description: helm for ingress
+Version: 0.1.0
+type: application
+name: ingress-chart
