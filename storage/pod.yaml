@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+ name: personal
+ labels:
+   name: personal
+spec:
+  containers:
+  - name: personal
+    image: rutikg/forfun:v2
+
+    volumeMounts:
+    - name: logfile   
+      mountPath: /log
+
+  volumes:
+  - name: logfile
+    persistentVolumeClaim:
+     claimName: claim-log-1
