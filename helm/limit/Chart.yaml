@@ -1,0 +1,6 @@
+name: limits
+description: helm for requests and limits
+appVersion: 0.1.0
+apiVersion: v2
+version: 0.1.0
+type: application
