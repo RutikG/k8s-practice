@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: stateful
+  name: stateful
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: stateful
+  template:
+    metadata:
+      labels:
+        app: stateful
+    spec:
+      containers:
+      - image: rutikg/forfun:v2
+        name: forfun
+
+        volumeMounts:
+        - name: persistant
+          mountPath: /var/log/nginx
+      
+  volumeClaimTemplates:
+  - metadata:
+     name: persistant
+    spec:
+     resources:
+      requests: 
+       storage: 2Gi
+          
+     accessModes: [ "ReadWriteOnce" ]
