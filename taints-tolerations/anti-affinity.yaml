@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: violet
+  name: violet
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: violet
+  template:
+    metadata:
+      labels:
+        app: violet
+    spec:
+      affinity:
+       podAntiAffinity:
+         preferredDuringSchedulingIgnoredDuringExecution:
+         - weight: 100
+           podAffinityTerm:
+             labelSelector:
+               matchExpressions:
+               - key: app
+                 operator: In
+                 values:
+                 - violet
+             topologyKey: kubernetes.io/hostname
+      containers:
+      - image: nginx
+        name: nginx

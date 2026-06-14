@@ -5,6 +5,7 @@ metadata:
     app: stateful
   name: stateful
 spec:
+  serviceName: headless
   replicas: 3
   selector:
     matchLabels:
