@@ -16,3 +16,7 @@ helm pull bitnami/nginx
 k create ingress site --rule=www.rutik.com/custom=dock-svc:80 --rule=www.rutiktesting.com/color=color-svc:80 --rule=www.rutiktesting.com/hello=hello-svc:80
 k taint node node01 key=value:NoSchedule
 k taint node node01 key=value:NoSchedule-
+k create role developer --verb=create,list,delete --resource=pod
+k create rolebinding dev-user-binding --role=developer --user=dev
+k create clusterrole michelle-role --verb=list,create,delete --resource=node
+k create clusterrolebinding michelle-role-binding --user=michelle --clusterrole=michelle-role
